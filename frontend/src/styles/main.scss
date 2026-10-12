@@ -1,0 +1,117 @@
+// Paleta do ProvaIF (tons de azul)
+$blue: #1a56db;
+$primary: #1a56db;
+$secondary: #5b6b86;
+$info: #0ea5e9;
+$dark: #0b1f44;
+$light: #f1f6ff;
+
+$body-color: #1e293b;
+$link-color: $primary;
+$border-radius: 0.6rem;
+$border-radius-lg: 0.9rem;
+$font-family-sans-serif: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$headings-font-weight: 700;
+
+@import 'bootstrap/scss/bootstrap';
+
+// Utilitários próprios
+.bg-azul-escuro {
+  background-color: $dark;
+}
+
+.bg-azul-claro {
+  background-color: $light;
+}
+
+.bg-gradiente-azul {
+  background: linear-gradient(135deg, #0b1f44 0%, #123a8c 55%, #1a56db 100%);
+}
+
+.texto-azul-claro {
+  color: #9cc3ff;
+}
+
+.icone-recurso {
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  font-size: 1.4rem;
+  color: $primary;
+  background-color: rgba($primary, 0.1);
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 1.5rem rgba($dark, 0.12) !important;
+  }
+}
+
+// Compensa a navbar fixa ao navegar para âncoras (#recursos, #faq...)
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+// Conteúdo rico (enunciados e alternativas): usado no editor, nas listas, na prévia e na prova
+.conteudo-rico {
+  overflow-wrap: anywhere;
+
+  p {
+    margin: 0 0 0.6em;
+  }
+
+  > :last-child,
+  li > p {
+    margin-bottom: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 0.6em;
+    padding-left: 1.6em;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0.4em 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 0.4em 0 0.8em;
+    max-width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid #8a94a6;
+    padding: 0.3em 0.55em;
+    vertical-align: top;
+    min-width: 2.5em;
+    // Células vazias com altura de uma linha (o aluno pode precisar preenchê-las)
+    height: 2em;
+
+    > p {
+      margin: 0;
+    }
+  }
+
+  th {
+    background-color: rgba($primary, 0.08);
+    font-weight: 700;
+  }
+}
+
+@media print {
+  .conteudo-rico th {
+    background-color: #eee;
+  }
+}
